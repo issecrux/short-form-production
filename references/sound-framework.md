@@ -1,7 +1,8 @@
 # Sound Framework — numbers from the PR/AE Masterclass distillation (STUDY_NOTES Stage D)
 
-All levels are relative to voice unless stated otherwise. This is Joseph's
-talking-head framework; Rima's amendments below it bind our productions.
+All levels are relative to voice unless stated otherwise. This is the
+course's talking-head framework, distilled from the Premiere Pro and After
+Effects masterclasses.
 
 ## Levels
 
@@ -27,17 +28,3 @@ talking-head framework; Rima's amendments below it bind our productions.
   one well-placed riser beats three random ones.
 - Music: build a library per mood, A/B-test with a loop before deciding.
 - Export audio: AAC 48 kHz; video bitrate 20.
-
-## Rima's amendments (binding, from Pick #1–3 production)
-
-- **Sound design is ALWAYS full-layer** — never a minimal version. Keyword
-  SFX are sourced from the catalog FIRST (synthesize only when the catalog
-  lacks one), placed at the **onset of the word they reference**, not at
-  the caption chunk's start.
-- SFX must be **felt**: presence and richness of sound outrank polite
-  levels. Repetitions of the same SFX must **vary in pitch/volume** (a
-  ladder) — identical repeats read as a template.
-- Campaign BGM: a trending song's **instrumental** version, baked into the
-  clip as a bed under the dialogue.
-- Final loudness is measured, never guessed: target ±−18 LUFS integrated
-  via a volume + alimiter stage (the limiter eats ±2–3 dB of applied gain).

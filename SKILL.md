@@ -1,29 +1,22 @@
 ---
 name: short-form-production
-description: Produce short-form clips (25–60s, vertical 9:16) from long-form podcast/talking-head footage using Rima's production system — hook mining, word-guarded cutting, per-line visual planning, HyperFrames build, full sound design, loudness, and frame-by-frame QA. Use this skill whenever starting, mining, building, revising, or QA-ing a clip ('bikin klip', 'mine kandidat dari episode', 'produksi pick berikutnya', 'heavy edit', 'cek render ini'), or any request that turns long footage into a short. Everything here is distilled from Ultimate Editing 2.0 study and verified production runs — do not improvise rules that contradict it.
+description: The short-form editing system distilled from Ultimate Editing 2.0 (Joseph) — hook mining and storytelling, cutting and pacing, per-line visual planning, B-roll, the text system (default captions, designed stacks, scene-integrated text), and the sound framework. Use this skill whenever mining hooks from long footage, cutting a short, planning an edit, designing text for a short, or designing its sound ('bikin klip', 'mine kandidat dari episode', 'susun rencana edit', 'heavy edit', 'cek render ini'). Content is study material only; check STUDY_NOTES for the chapters still being distilled before claiming coverage.
 ---
 
-# Short-Form Production (Rima × Luna)
+# Short-Form Production — the studied system
 
-Rima's short-form clip production system, distilled from Ultimate Editing 2.0
-(Joseph) and the verified SOPs from productions Pick #1–3. Source library:
-`~/workspace/Studio Editor/resources/ultimate-editing-2.0/STUDY_NOTES.md`
-— read the referenced chapter before running a stage when in doubt. Measured
-visual tokens: `~/workspace/Studio Editor/style-lab/STYLE.md`.
+Everything in this skill is distilled from one resource: the Ultimate
+Editing 2.0 course (Joseph), studied in two channels (transcripts + visual
+frame checks) and translated into HyperFrames equivalents. Full notes:
+`~/workspace/Studio Editor/resources/ultimate-editing-2.0/STUDY_NOTES.md`.
+Measured caption tokens from the style study:
+`~/workspace/Studio Editor/style-lab/STYLE.md`.
 
-## Rules that bind every stage
+Fidelity rule: every number here comes from the course material or from
+measuring its reference footage. Do not invent parameters the resource
+does not contain.
 
-- Never start making a video before Rima gives an explicit go-ahead.
-- Rima delegates selection decisions to Luna: decide yourself, give brief
-  reasons, Rima vetoes. Presenting a menu of options is friction.
-- Revisions are always new version files (v2, v3, …) with labeled
-  before/after proof. Never overwrite a delivered version.
-- Never claim completion without verifying the file on disk (size, duration,
-  ffprobe). Download panels and process reports are not proof.
-- Every number in this skill comes from distillation or measurement. When a
-  situation is not covered, measure first — do not invent parameters.
-
-## Stage 1 — Mining & story (STUDY_NOTES: M4-06, M4-07, M4-08)
+## 1 — Mining & story (M4-06, M4-07, M4-08)
 
 Set the **short's topic first**; every candidate is measured against that
 topic — a great hook serving another topic is still rejected.
@@ -35,168 +28,142 @@ Hunt for a **hook statement**: only three types qualify —
 
 Two vetoes override content quality:
 - **Delivery veto**: good words with jittery, broken-up pauses = rejected.
-- **Visual veto**: segments that cannot be cropped vertically in a viable
-  way (whiteboards, music+text intros, upper-third framing) = rejected.
+- **Editability veto**: segments that cannot be cut into a viable vertical
+  short (music+text intros, whiteboards, upper-third framing) = rejected.
 
 Assembling a hook is a standard move, not cheating:
 - **Stacking** — combine two hook moments (e.g. a generalization + a battery
   of negative what-if questions).
-- **Splicing** — join fragments across timestamps, cut the filler in
-  between, tighten internal pauses. Keep qualifiers that carry meaning; cut
-  the neutral ones.
+- **Splicing** — join fragments, cut the filler inside the hook itself,
+  tighten internal pauses. Keep qualifiers that carry meaning; cut the
+  neutral ones.
 - **Transplant** — borrow a transition statement from elsewhere in the
-  episode when the hook and the payoff do not connect.
-
-Score candidates with the /25 rubric (first-line strength, arc+payoff,
-arousal, quotability, host reaction/visual). The rubric raises probability;
-it is not a predictive model — treat it as a ranking tool.
+  footage when the hook and the payoff do not connect.
 
 Arrange the story in **storytelling order**: explain → new question → value
-→ conclusion. During mining, collect examples generously; during the build,
-trim ruthlessly — most examples must be deleted to reach the conclusion as
-fast as possible. One voice per short: cut host interjections from the body
-except a closing reaction.
+→ conclusion. During mining, collect examples generously; during the trim
+pass, delete most of them to reach the conclusion as fast as possible.
 
-## Stage 2 — Cutting (M4-05, M4-07 + production SOP)
+## 2 — Cutting & pacing (M4-05, M4-07)
 
-- Cut silence only BETWEEN phrases, exactly after speech stops and before
-  it starts. Apply a **word-guard**: never cut inside [word start −0.05s,
-  word end +0.04s] — detected "silences" often contain soft word onsets.
+- Cut silence only BETWEEN phrases — exactly after speech stops and before
+  it starts, never into a word. Detected silences can hide soft word
+  onsets; check before cutting.
 - **Protect emphasis pauses**: a mid-sentence pause right before the payoff
-  word is emphasis, not fat. Keep the silence after the last line as a
-  closing beat (~0.5–1s of live footage).
-- **J/L-cuts** serve three functions: more time on the face, the cut point
-  on the right visual moment, and breathing room after an emphasized line
-  (proportional to its weight). Implement them as per-piece video vs audio
-  trim offsets.
-- Build footage in **ONE ffmpeg pass** with trim/concat filters. Assembling
-  per-piece files + concat demuxer causes measured drift (+0.74s).
-- Split pieces at shot boundaries; measure each shot's vertical crop from
-  that shot's own frame; judge wide shots from full-res frames, not small
-  contact-sheet cells.
+  word is emphasis, not fat. The silence after the last line is kept on
+  purpose — it emphasizes the closing statement.
+- **J/L-cuts** serve three functions: more time on the speaker's face
+  before the next line, the cut point on the right visual moment (e.g.
+  while the subject still looks at camera), and breathing room after an
+  emphasized line, proportional to its weight. The speaker's breaths are
+  usable J-cut material.
+- Split at shot boundaries. One voice carries the story; interjections are
+  cut from the body except a closing reaction.
 
-## Stage 3 — Per-line visual plan (M4-04, M4-09 to M4-12)
+## 3 — Per-line visual plan (M4-04, M4-09 to M4-12)
 
-Write a plan per line BEFORE building: which shot, which word gets
-highlighted, which text technique. No plan, no build.
+Plan every line BEFORE building: which shot, which word gets highlighted,
+which text technique. The plan is made from a style breakdown — pillars
+extracted from ±10 inspiration reels.
 
-- Block structure of this style: hook → **3 scenes** → **pattern break**
+- Block structure: hook → **3 B-roll+text scenes** → **pattern break**
   (back to the speaker, simple text — brings the viewer "back to zero") →
-  repeat. For a 30–50s clip, one block ≈ one whole clip.
+  repeat. Repetition lines are planned as match cuts.
 - Style composition: ±40% footage, 40% cinematic text, 20% sound design.
-- **B-roll-free zones: the hook and transition statements.** Transitions are
-  deliberately empty — viewer rest is a design decision.
-- B-roll is **literal**: it depicts the word/emotion being spoken.
-  Selection order: script → highlight the value/emotion → footage that
-  shows it. Reuse an emotion scene when the same word returns (zero cost).
-  Contrast lines "X instead of Y" → split screen. Turning points → full
-  cinematic treatment. Dense educational stretches → stay on the speaker
-  with simple subtitles. The ending always returns to the speaker's face.
-- Source priority: recorded footage / the episode's own angles (host
-  reactions, second angle) far above stock; stock only for concepts absent
-  from the episode, and it must pass the "stocky" veto (corporate, acted,
-  too neat/too bright = reject; the keyword "silhouette" yields cinematic
-  results). Write the shot list per beat with an emotion spec
-  (light/wardrobe/angle).
+- **B-roll-free zones: the hook and transition statements.** Transitions
+  are deliberately empty — viewer rest is a design decision.
+- B-roll's job: turn the VALUE in the footage into something seen, felt, or
+  understood. Selection: script → highlight the value/emotion → footage
+  that literally shows it. Reuse an emotion scene when the same word
+  returns (zero cost). Contrast lines "X instead of Y" → split screen.
+  Turning points → full cinematic text treatment. Dense educational
+  stretches → stay on the speaker with simple subtitles. The ending returns
+  to the speaker's face.
+- Sources: recorded/client footage is strongly preferred ("you want to see
+  Hormozi doing what he's talking about"); stock is always worse, free
+  stock worst. Veto "stocky" footage (corporate, acted, too neat/too
+  bright); the keyword "silhouette" yields cinematic shots. Collect two
+  shots per beat (action + face/expression), specify emotion via light,
+  wardrobe, and angle in the shot list, rename downloads plainly, and QC
+  after downloading.
 
-## Stage 4 — Text (M4-14 to M4-18)
+## 4 — Text (M4-14 to M4-18)
 
 Text has three simultaneous roles: show what is said, highlight the focus,
 and look appealing. Fonts separate the roles: **sans = ordinary words,
-serif/script = special words only** ("a square among circles"). Test for a
-special word: the sans words may be deleted without losing the point; the
-special word IS the point. At most one special word per caption chunk.
+script = special words only** ("a square among circles" — one different
+shape in a uniform pattern wins the eye by itself). Test for a special
+word: the sans words may be deleted without losing much value; the script
+word IS the point of the scene. Sans in this style: Coolvetica, Montserrat,
+SF UI Display. Script: Edwardian Script and similar.
 
-Text workflow order: (1) default text for the whole edit, (2) special
-designed scenes, (3) text over B-roll scenes.
+Workflow order: (1) default text for the whole edit, (2) special designed
+scenes (intro + transitions), (3) text designed over B-roll scenes.
 
-**Default text** is built in 4 steps (transcribe → caption → style →
-animation):
-- Transcript: strip all periods and commas. This style's default captions =
-  1 word, min 2s, single line. (Our campaign chunks are 3–5 words per the
-  brief — outside the campaign, use the style default.)
-- Sans style: smaller is better (the beginner mistake is fonts that are too
-  big); lower-third position; soft drop shadow (heavy blur).
-- **The animator** (the only one, confirmed across all sources): position
-  starts SLIGHTLY below final + opacity starts at ±25% + blur starts at ±5,
-  all ease-out (fast → slow), duration not too fast. Big pops look cheap;
-  Joseph's final version is named "POP UP MINIMAL". Our measured version is
-  in STYLE.md (sans per word, serif per character).
+**Default text** — 4 steps: transcribe → caption → style → animation.
+- Transcribe, then **delete all periods and commas** from the script.
+- Caption settings: max length in characters — 7 ≈ 1 word, 15–20 ≈
+  2 words, 40 ≈ long sentences. For this style he chooses **one-word
+  captions**, minimum duration **2s**, **single line**.
+- Style: Coolvetica Regular at ±80–90 ("smaller is better" — the most
+  common beginner mistake is fonts that are way too big), center-aligned,
+  lower-third zone, drop shadow kept but blurred soft (±80). Save as the
+  track style so it applies to every caption.
+- **The animator**: position starts SLIGHTLY below final (a small offset —
+  big pops look cheap) with fast→slow easing; opacity starts at **25–50%**;
+  Gaussian blur starts at **5** (10 is too intense, 20 way too intense) and
+  ends at 0; shutter angle 180 for motion blur. Slower is nicer. His final,
+  reduced version is named "POP UP MINIMAL" — minimal is the doctrine.
+  Save the animation as a preset anchored so its length stays constant
+  regardless of caption length.
 
-**Designed stacks** (intro + transition statements): one element per word,
-each starting at its word's onset, all ending at the same point (never trim
-from the front — the animation lives there). Focus words → special font;
-**drop shadow is removed** in stacks (our serif glow belongs to the caption
-layer — do not mix the two). Arrange as a puzzle: mass balanced in the
-center, word sizes follow the gaps in neighboring letterforms (relative
-scale ±120–140%, the payoff word biggest), diagonal reading flow, never
-covering the subject.
+**Designed stacks** — one text element per word, each starting at its
+word's onset (read from the waveform), all trimmed to a common END (never
+trim the front; the animation lives there). Focus words switch to the
+script font. **Drop shadow is removed** for stack words — it does not suit
+aligned text. Arrange as a puzzle (the design principles from M4-14): mass
+balanced in the center; word sizes follow the gaps in neighboring
+letterforms (small words tucked into the space behind a T, between E and
+T, behind a Y); relative scale ±120–140% with the payoff word biggest;
+reading flow runs diagonally (top-left → bottom-right or mirrored); a
+heavy side is counterweighted by the script word on the opposite side;
+never cover the subject. Patterns: center stack or diagonal. There is no
+single right answer — iterate by eye.
 
-**Scene-integrated text** (for B-roll scenes): nest all words into one
-wrapper, then pick one —
-- *3D warp*: perspective + rotate matched by eye to the surface plane in
-  the shot; a little goes a long way — too much is immediately wrong.
-- *Blending*: needs a flat, textured surface; `mix-blend-mode` overlay (or
-  screen with slightly reduced opacity); per-word opacity grading inside
-  the blend (filler 25–50%, focus 100%).
-- *Glitch entrance* (optional): randomized per-frame opacity keyframes
-  settling at 100%.
+**Scene-integrated text** — prepare the words as a stack, nest them into
+one layer (HyperFrames: one wrapper), then apply one effect:
+- *3D warp* (Basic 3D): swivel + tilt matched by eye to the plane of the
+  wall/surface in the shot; "distance to image" adds perspective — use a
+  little, too much looks wrong immediately. Trial and error is part of it.
+  No script font for scene text.
+- *Blending mode*: requires a flat, textured surface (a wall) — without
+  texture there is nothing to blend into. Common picks: **Overlay** (white
+  text into the wall) or **Screen** with slightly reduced opacity; overall
+  layer opacity ±75%; per-word opacity grading inside the blend (filler
+  words 25–50%, focus words 100%) so the focus hierarchy survives.
+- *Glitch entrance* (variant): instead of a smooth opacity ramp, randomize
+  opacity keyframes frame by frame (25, 0, 100, 0, 40, 0, 100, 50, …)
+  until settling at 100%.
 
-Chapters still being distilled (tracking text, the combined text-on-B-roll
-workflow, this style's sound — M4-19 to 29): check the latest status in
-STUDY_NOTES before claiming coverage; the Stage 6 framework below covers
-the gap meanwhile.
+Related measured parameters from the masterclass study: Deep Glow Radius
+801.00, Exposure 0.20, blend Screen, Chromatic Aberration 0.50%; VR Glow
+Luma Threshold 0.00 / Radius 190 / Brightness 1.30 / Saturation 1.00;
+caption doctrine (AE-36) max 25–30 characters / min 2s / single line;
+zoom doctrine max 120%, never back-to-back zooms; speed-graph spikes
+≈4× average speed (≈ GSAP power3.out; serif characters power2.out).
 
-## Stage 5 — HyperFrames build (verified SOP, Pick #1–3)
+## 5 — Sound (framework: `references/sound-framework.md`)
 
-Read `~/workspace/Studio Editor/AGENTS.md` before touching a composition —
-its check rules, unique audio ids, and timeline registration bind all work.
-Production specifics:
+Read the reference file for the full level table and doctrine from the
+Premiere Pro / After Effects masterclasses: movement = whoosh; layering
+whoosh → texture → riser/hit; exactly one riser per video; voice −6 to
+−12 dB (ideal ±−9), music −20 to −24 dB under narration; export AAC
+48 kHz, bitrate 20.
 
-- Renders on this VM use `TMPDIR=/home/hatch/.cache/hyperframes/tmp`
-  (/tmp is only 512 MB).
-- Caption word spacing uses **margin on spans**, not HTML whitespace — the
-  renderer collapses whitespace between inline-blocks.
-- Every `<audio>` needs a unique id, or the render is silent.
-- Scene backgrounds use the texture stack: blurred set photo → wash → silk
-  gradient (screen) → light leak (screen) → halftone (overlay) → grain
-  (overlay) → vignette. Cutouts are REAL photos (never AI), white sticker
-  outline, hard drop shadow.
-- Footage zoom: **one continuous ramp** 1.0→1.06 across the whole content.
-  Per-shot-group ramps cause pumping.
-- External narration (e.g. Rima's ElevenLabs): normalize first, measure its
-  word onsets with Whisper, sync title pops to onsets; HOOK_T = speech end
-  + 0.13; riser at HOOK_T −0.55; transition at HOOK_T −0.13.
-- Keep generator scripts in the project folder, NEVER in /tmp (lost on VM
-  restart).
-- Cross-platform safe zone: top 250, bottom 484, right 140, left 60 px
-  (1080×1920). Spec: `~/workspace/lhm-library/SAFE_ZONE_REELS.md`.
+## Coverage status
 
-## Stage 6 — Sound design (framework: `references/sound-framework.md`)
-
-Read the reference file for the full level table. The core that must never
-be lost: movement = whoosh; layer whoosh → texture → riser/hit; **exactly
-one riser** per video, at the intro bridge; voice ±−9 dB, music −20 to
-−24 dB under narration.
-
-Rima's standard on top of that framework: **always full layers, never
-minimal** — keyword SFX from the catalog first, placed at word onsets; thin
-accents on emphasis words and reactions; SFX must be felt, and repeated
-uses of the same SFX are varied in pitch/volume. Campaign BGM = a trending
-song's instrumental version as a bed.
-
-## Stage 7 — Loudness & QA (`references/qa-checklist.md`)
-
-Run the full checklist in the reference file before delivering any render.
-In short: a final loudness stage (volume + alimiter, target ±−18 LUFS,
-measure LUFS + true peak), a frame audit of **every** EDL piece from the
-final render, a render-transcript check, a last-frame check (live footage,
-not black), and composition duration never exceeding the footage end.
-
-## Campaign context (for @thetalkreceipt / LHM clips)
-
-Campaign rules live in their own files — do not rely on memory: brief and
-caption research in `~/workspace/lhm-library/` (`CAPTION_HASHTAG_RESEARCH.md`,
-`SAFE_ZONE_REELS.md`, `TRENDING_SOUNDS_*.md`, `candidates/SHORTLIST.md`).
-Posting follows TikTok → (48–72h) → Instagram → YouTube, and Buffer
-scheduling happens only after Rima approves the clip.
+Distilled and included: M4-04 to M4-18 (short-form cluster, B-roll block,
+text block) and the PR/AE masterclass frameworks. Still being distilled:
+M4-19 to M4-22 (tracking text, combined text-on-B-roll workflow, practice
+builds) and M4-23 to M4-29 (this style's sound & music) — check STUDY_NOTES
+for their status before relying on this skill for those topics.

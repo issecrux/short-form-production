@@ -3,20 +3,20 @@
   "evals": [
     {
       "id": 1,
-      "prompt": "Episode baru Let Him Mansplain sudah ada transkripnya di lhm-library. Tolong mine kandidat klip buat pick berikutnya dan putuskan mana yang diproduksi.",
-      "expected_output": "Topic set first; candidates filtered by the 3 hook types + delivery/visual vetoes; ranked with the /25 rubric; ONE pick decided with reasons (not a menu of options for Rima).",
+      "prompt": "Transkrip episode podcast panjang ini sudah ada. Mine kandidat hook buat satu short dan putuskan mana yang paling layak diproduksi.",
+      "expected_output": "Topic set first; candidates filtered by the 3 hook types + delivery/editability vetoes; story arranged in storytelling order; ONE candidate decided with reasons drawn from the system.",
       "files": []
     },
     {
       "id": 2,
-      "prompt": "Klip yang ini mau kubuat versi heavy edit. Tolong susun rencana editnya dulu sebelum build.",
-      "expected_output": "A per-line plan (shot + highlight word + text technique) written before any build; block structure hook → 3 scenes → pattern break; hook & transitions declared B-roll-free; B-roll literal per spoken word/emotion.",
+      "prompt": "Susun rencana edit per baris buat short dari footage ini sebelum build.",
+      "expected_output": "A per-line plan (shot + highlight word + text technique); block structure hook → 3 scenes → pattern break; hook & transitions declared B-roll-free; B-roll literal per spoken word/emotion.",
       "files": []
     },
     {
       "id": 3,
-      "prompt": "Render klipnya sudah selesai di folder renders. Cek dulu sebelum aku posting.",
-      "expected_output": "Full QA checklist executed: frame audit of every EDL piece from the final render, render transcript verified, last frame live (not black), loudness measured and reported with numbers, new version filename.",
+      "prompt": "Buatkan teks desain buat intro short ini — dua kata terpentingnya sudah kutandai di script.",
+      "expected_output": "Designed stack per the system: one element per word starting at its onset, common end point, focus words in the special font only, drop shadow removed, puzzle-fit arrangement with balanced mass and diagonal flow.",
       "files": []
     }
   ]
