@@ -1,0 +1,23 @@
+{
+  "skill_name": "short-form-production",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Episode baru Let Him Mansplain sudah ada transkripnya di lhm-library. Tolong mine kandidat klip buat pick berikutnya dan putuskan mana yang diproduksi.",
+      "expected_output": "Topik ditetapkan dulu; kandidat disaring dengan 3 tipe hook + veto delivery/visual; peringkat rubrik /25; SATU pick diputuskan dengan alasan (bukan menu pilihan untuk Rima).",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Klip yang ini mau kubuat versi heavy edit. Tolong susun rencana editnya dulu sebelum build.",
+      "expected_output": "Rencana per baris (shot + kata highlight + teknik teks) ditulis sebelum build; struktur blok hook → 3 scene → pattern break; hook & transisi dinyatakan bebas B-roll; B-roll literal per kata/emosi.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Render klipnya sudah selesai di folder renders. Cek dulu sebelum aku posting.",
+      "expected_output": "Checklist QA dijalankan penuh: audit frame setiap piece EDL dari render final, transkrip render diverifikasi, frame terakhir hidup (bukan hitam), loudness terukur dan dilaporkan dengan angka, file versi baru.",
+      "files": []
+    }
+  ]
+}
